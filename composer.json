@@ -1,0 +1,41 @@
+{
+    "name": "adolphyu/laravel-facebook-messenger",
+    "description": "A Laravel Package to Integrate Facebook Messenger API",
+    "keywords": [
+        "facebook",
+        "messenger",
+        "chatbot",
+        "laravel"
+    ],
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adolph",
+            "email": "adolph@ceramicss.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "AdolphYu\\FBMessenger\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AdolphYu\\FBMessenger\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AdolphYu\\FBMessenger\\Providers\\FBMSGServiceProvider"
+            ]
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^5.0",
+        "phpunit/phpunit": "^9.3"
+    }
+}
