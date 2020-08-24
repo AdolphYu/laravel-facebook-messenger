@@ -2,18 +2,16 @@
 
 namespace AdolphYu\FBMessenger\Tests\Models\Message;
 
-use AdolphYu\FBMessenger\Models\Message\Attachment;
-use AdolphYu\FBMessenger\Models\Message\Payload;
-use AdolphYu\FBMessenger\Models\Message\Product;
+use AdolphYu\FBMessenger\Models\Message\Element;
 use AdolphYu\FBMessenger\Tests\TestCase;
 use Faker\Factory;
 
 /**
  *
- * Class AttachmentTest
+ * Class ElementTest
  * @package AdolphYu\FBMessenger\Tests\Models\Message
  */
-class AttachmentTest extends TestCase
+class ElementTest extends TestCase
 {
 
     /**
@@ -21,9 +19,8 @@ class AttachmentTest extends TestCase
      */
     public function testToArray()
     {
-
         $expected = self::initData();
-        $actual = new Attachment($expected);
+        $actual = new Element($expected);
         $this->assertEquals($expected, $actual->toArray());
     }
 
@@ -32,14 +29,12 @@ class AttachmentTest extends TestCase
      * @return array
      */
     public static function initData(){
-        $faker = Factory::create();
-        $type = 'audio';
-        $url = $faker->url;
         return [
-            'type' => $type,
-            'payload' => [
-                'url' => $url,
-            ]
+            'id' => 1,
+            'retailer_id' => 1,
+            'image_url' => 1,
+            'title' => 1,
+            'subtitle' => 1,
         ];
     }
 }

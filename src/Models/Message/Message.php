@@ -11,6 +11,7 @@ class Message extends Model
     public $quick_reply;
     public $reply_to;
     public $attachments;
+    public $attachment;
     public $referral;
     public $quick_replies;
     public $postback;
@@ -49,6 +50,10 @@ class Message extends Model
             }
         }
 
+        if(isset($message['attachment'])){
+            $this->attachment = new Attachment($message['attachment']);
+        }
+
         if(isset($message['referral'])){
             $this->referral = new Product($message['referral']);
         }
@@ -68,6 +73,7 @@ class Message extends Model
             'quick_reply'=>$this->quick_reply?$this->quick_reply->toArray():null,
             'reply_to'=>$this->reply_to?$this->reply_to->toArray():null,
             'attachments'=>$this->attachments->toArray(),
+            'attachment'=>$this->attachment?$this->attachment->toArray():null,
             'referral'=>$this->referral?$this->referral->toArray():null,
             'quick_replies'=>$this->quick_replies->toArray(),
             'postback'=>$this->postback?$this->postback->toArray():null,

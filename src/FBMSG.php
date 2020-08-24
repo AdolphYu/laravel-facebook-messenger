@@ -56,7 +56,7 @@ class FBMSG
     public $app;
 
     /**
-     * FBMSGBot constructor.
+     * FBMSG constructor.
      * @param Application $app
      */
     public function __construct(Application $app)
@@ -149,6 +149,12 @@ class FBMSG
     public function send(Messaging $message, $type = self::TYPE_POST)
     {
         return $this->call($message->getRoute(), $message->toArray(),$message->getMethod());
+    }
+
+
+    public function receive($request){
+        $receive = new Receiver($request);
+        $receive->process();
     }
 
 
