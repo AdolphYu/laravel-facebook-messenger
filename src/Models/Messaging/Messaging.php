@@ -2,6 +2,7 @@
 
 namespace AdolphYu\FBMessenger\Models\Messaging;
 
+use AdolphYu\FBMessenger\Exceptions\UnknownTypeException;
 use AdolphYu\FBMessenger\FBMSG;
 use AdolphYu\FBMessenger\Models\Message\Message;
 use AdolphYu\FBMessenger\Models\Model;
@@ -64,6 +65,40 @@ class Messaging extends Model implements RequestInterface
     public function getMethod()
     {
         return FBMSG::TYPE_POST;
+    }
+
+    /**
+     * addElement
+     * @param $element
+     * @return $this
+     * @throws \AdolphYu\FBMessenger\Exceptions\UnknownTypeException
+     */
+    public function addElement($element){
+        $this->message->addElement($element);
+        return $this;
+    }
+
+    /**
+     * addButton
+     * @param $button
+     * @return $this
+     * @throws \AdolphYu\FBMessenger\Exceptions\UnknownTypeException
+     */
+    public function addButton($button)
+    {
+        $this->message->addButton($button);
+        return $this;
+    }
+
+    /**
+     * setPayload
+     * @param $payload
+     * @return $this
+     * @throws UnknownTypeException
+     */
+    public function setPayload($payload){
+        $this->message->setPayload($payload);
+        return $this;
     }
 
 }

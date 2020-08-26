@@ -7,7 +7,7 @@ use AdolphYu\FBMessenger\Models\Message\Message;
 use AdolphYu\FBMessenger\Models\Message\QuickReply;
 use AdolphYu\FBMessenger\Models\User\Recipient;
 
-class GenericTemplateMessaging extends Messaging
+class OpenGraphTemplateMessaging extends Messaging
 {
     public function __construct($recipient_id, $elements)
     {
@@ -15,9 +15,10 @@ class GenericTemplateMessaging extends Messaging
         $this->message = new Message(['attachment'=>[
             'type'=>'template',
             'payload'=>[
-                'template_type'=>'generic',
+                'template_type'=>'open_graph',
                 'elements'=>$elements
             ]
         ]]);
     }
+
 }

@@ -255,6 +255,38 @@ class Payload extends Model
     }
 
 
+    /**
+     * addButton
+     * @param $button
+     * @return $this
+     * @throws UnknownTypeException
+     */
+    public function addButton($button){
+        if($button instanceof Button){
+            $this->buttons->push($button);
+        }elseif(is_array($button)){
+            $this->buttons->push(new Button($button));
+        }else{
+            throw new UnknownTypeException('Element type error');
+        }
+        return $this;
+    }
 
+    /**
+     * addBoardingPass
+     * @param $boardingPass
+     * @return $this
+     * @throws UnknownTypeException
+     */
+    public function addBoardingPass($boardingPass){
+        if($boardingPass instanceof BoardingPass){
+            $this->boarding_pass->push($boardingPass);
+        }elseif(is_array($boardingPass)){
+            $this->boarding_pass->push(new BoardingPass($boardingPass));
+        }else{
+            throw new UnknownTypeException('Element type error');
+        }
+        return $this;
+    }
 
 }

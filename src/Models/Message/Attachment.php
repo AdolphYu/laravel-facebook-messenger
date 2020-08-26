@@ -2,6 +2,7 @@
 
 namespace AdolphYu\FBMessenger\Models\Message;
 
+use AdolphYu\FBMessenger\Exceptions\UnknownTypeException;
 use Illuminate\Contracts\Support\Arrayable;
 
 class Attachment implements Arrayable
@@ -68,6 +69,45 @@ class Attachment implements Arrayable
      */
     public function addElement($element){
         $this->payload->addElement($element);
+        return $this;
+    }
+
+    /**
+     * addButton
+     * @param $button
+     * @return $this
+     * @throws \AdolphYu\FBMessenger\Exceptions\UnknownTypeException
+     */
+    public function addButton($button){
+        $this->payload->addButton($button);
+        return $this;
+    }
+
+    /**
+     * setPayload
+     * @param $payload
+     * @return $this
+     * @throws UnknownTypeException
+     */
+    public function setPayload($payload){
+        if($payload instanceof Payload){
+            $this->payload = $payload;
+        }elseif(is_array($payload)){
+            $this->payload = new Payload($payload);
+        }else{
+            throw new UnknownTypeException('Element type error');
+        }
+        return $this;
+    }
+
+    /**
+     * addBoardingPass
+     * @param $boardingPass
+     * @return $this
+     * @throws \AdolphYu\FBMessenger\Exceptions\UnknownTypeException
+     */
+    public function addBoardingPass($boardingPass){
+        $this->payload->addBoardingPass($boardingPass);
         return $this;
     }
 

@@ -142,4 +142,40 @@ class Message extends Model
         return $this;
     }
 
+    /**
+     * addButton
+     * @param $button
+     * @return $this
+     * @throws \AdolphYu\FBMessenger\Exceptions\UnknownTypeException
+     */
+    public function addButton($button){
+        $this->attachment->addButton($button);
+        return $this;
+    }
+
+    /**
+     * setPayload
+     * @param $payload
+     * @return $this
+     * @throws UnknownTypeException
+     */
+    public function setPayload($payload){
+        $this->attachment->setPayload($payload);
+        return $this;
+    }
+
+
+    /**
+     * addBoardingPass
+     * @param $boardingPass
+     * @return $this
+     * @throws \AdolphYu\FBMessenger\Exceptions\UnknownTypeException
+     */
+    public function addBoardingPass($boardingPass){
+        $this->attachment->addBoardingPass($boardingPass);
+        return $this;
+    }
+
+
+
 }

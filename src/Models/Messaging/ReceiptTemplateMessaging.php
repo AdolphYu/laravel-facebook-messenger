@@ -7,17 +7,15 @@ use AdolphYu\FBMessenger\Models\Message\Message;
 use AdolphYu\FBMessenger\Models\Message\QuickReply;
 use AdolphYu\FBMessenger\Models\User\Recipient;
 
-class GenericTemplateMessaging extends Messaging
+class ReceiptTemplateMessaging extends Messaging
 {
-    public function __construct($recipient_id, $elements)
+    public function __construct($recipient_id, $payload)
     {
         $this->recipient = new Recipient(['id'=>$recipient_id]);
         $this->message = new Message(['attachment'=>[
             'type'=>'template',
-            'payload'=>[
-                'template_type'=>'generic',
-                'elements'=>$elements
-            ]
+            'payload'=>array_merge($payload,['template_type'=>'receipt'])
         ]]);
     }
+
 }
