@@ -2,6 +2,7 @@
 
 namespace AdolphYu\FBMessenger\Models;
 
+use AdolphYu\FBMessenger\Models\Messaging\Messaging;
 use Illuminate\Support\Collection;
 
 class Page extends Model

@@ -2,6 +2,7 @@
 
 namespace AdolphYu\FBMessenger\Models\Message;
 
+use AdolphYu\FBMessenger\Exceptions\UnknownTypeException;
 use AdolphYu\FBMessenger\Models\Model;
 
 class Message extends Model
@@ -113,6 +114,32 @@ class Message extends Model
         return $this->postback?true:false;
     }
 
+    /**
+     * addQuickReply
+     * @param $quickReply
+     * @return $this
+     * @throws UnknownTypeException
+     */
+    public function addQuickReply($quickReply){
+        if($quickReply instanceof QuickReply) {
+            $this->quick_replies->push($quickReply);
+        }elseif (is_array($quickReply)){
+            $this->quick_replies->push(new QuickReply($quickReply));
+        }else{
+            throw new UnknownTypeException('QuickReply type error');
+        }
+        return $this;
+    }
 
+    /**
+     * addElement
+     * @param $element
+     * @return $this
+     * @throws \AdolphYu\FBMessenger\Exceptions\UnknownTypeException
+     */
+    public function addElement($element){
+        $this->attachment->addElement($element);
+        return $this;
+    }
 
 }

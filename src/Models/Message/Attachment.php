@@ -60,4 +60,15 @@ class Attachment implements Arrayable
         return $this->type=='video';
     }
 
+    /**
+     * addElement
+     * @param $element
+     * @return $this
+     * @throws \AdolphYu\FBMessenger\Exceptions\UnknownTypeException
+     */
+    public function addElement($element){
+        $this->payload->addElement($element);
+        return $this;
+    }
+
 }

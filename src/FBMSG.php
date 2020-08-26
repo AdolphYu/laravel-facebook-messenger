@@ -3,7 +3,7 @@
 
 namespace AdolphYu\FBMessenger;
 
-use AdolphYu\FBMessenger\Models\Messaging;
+use AdolphYu\FBMessenger\Models\Messaging\Messaging;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Broadcasting\BroadcastException;
@@ -150,7 +150,6 @@ class FBMSG
     {
         return $this->call($message->getRoute(), $message->toArray(),$message->getMethod());
     }
-
 
     public function receive($request){
         $receive = new Receiver($request);

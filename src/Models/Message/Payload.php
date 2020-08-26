@@ -2,6 +2,7 @@
 
 namespace AdolphYu\FBMessenger\Models\Message;
 
+use AdolphYu\FBMessenger\Exceptions\UnknownTypeException;
 use AdolphYu\FBMessenger\Models\Message\Airline\BoardingPass;
 use AdolphYu\FBMessenger\Models\Message\Airline\FlightInfo;
 use AdolphYu\FBMessenger\Models\Message\Airline\PassengerInfo;
@@ -234,5 +235,26 @@ class Payload extends Model
             'update_flight_info'=>$this->update_flight_info?$this->update_flight_info->toArray():null,
         ]);
     }
+
+
+    /**
+     * addElement
+     * @param $element
+     * @return $this
+     * @throws UnknownTypeException
+     */
+    public function addElement($element){
+        if($element instanceof Element){
+            $this->elements->push($element);
+        }elseif(is_array($element)){
+            $this->elements->push(new Element($element));
+        }else{
+            throw new UnknownTypeException('Element type error');
+        }
+        return $this;
+    }
+
+
+
 
 }
