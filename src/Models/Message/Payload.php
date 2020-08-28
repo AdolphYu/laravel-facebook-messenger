@@ -43,6 +43,7 @@ class Payload extends Model
     public $total_price;
     public $update_type;
     public $update_flight_info;
+    public $payload;
 
 
     public function __construct($payload)
@@ -195,7 +196,9 @@ class Payload extends Model
             $this->update_flight_info = new FlightInfo($payload['update_flight_info']);
         }
 
-
+        if(isset($payload['payload'])){
+            $this->payload = $payload['payload'];
+        }
 
     }
 
@@ -233,6 +236,7 @@ class Payload extends Model
             'total_price'=>$this->total_price,
             'update_type'=>$this->update_type,
             'update_flight_info'=>$this->update_flight_info?$this->update_flight_info->toArray():null,
+            'payload'=>$this->payload,
         ]);
     }
 

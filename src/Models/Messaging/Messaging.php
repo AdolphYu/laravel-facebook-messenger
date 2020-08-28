@@ -17,6 +17,8 @@ class Messaging extends Model implements RequestInterface
     public $timestamp;
     public $message;
     public $messaging_type;
+    public $tag;
+    public $persona_id;
 
     const MESSAGING_TYPE_RESPONSE = 'RESPONSE';
     const MESSAGING_TYPE_UPDATE = 'UPDATE';
@@ -43,6 +45,15 @@ class Messaging extends Model implements RequestInterface
         if(isset($messaging['messaging_type'])) {
             $this->messaging_type = $messaging['messaging_type'];
         }
+
+        if(isset($messaging['tag'])) {
+            $this->tag = $messaging['tag'];
+        }
+
+        if(isset($messaging['persona_id'])) {
+            $this->persona_id = $messaging['persona_id'];
+        }
+
     }
 
     public function toArray()
@@ -53,6 +64,8 @@ class Messaging extends Model implements RequestInterface
             'timestamp'=>$this->timestamp,
             'message'=>$this->message?$this->message->toArray():null,
             'messaging_type'=>$this->messaging_type,
+            'tag'=>$this->tag,
+            'persona_id'=>$this->persona_id,
         ]);
     }
 
@@ -101,4 +114,14 @@ class Messaging extends Model implements RequestInterface
         return $this;
     }
 
+    public function setTag($tag){
+        if(in_array($tag,['CONFIRMED_EVENT_UPDATE','POST_PURCHASE_UPDATE','ACCOUNT_UPDATE','HUMAN_AGENT'])){
+            $this->messaging_type = self::MESSAGING_TYPE_MESSAGE_TAG;
+            $this->tag = $tag;
+        }
+    }
+
+    public function setPersona($persona_id){
+        $this->persona_id = $persona_id;
+    }
 }

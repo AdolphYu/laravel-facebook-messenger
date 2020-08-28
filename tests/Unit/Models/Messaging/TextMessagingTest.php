@@ -52,6 +52,15 @@ class TextMessagingTest extends TestCase
             'image_url'=>'http://example.com/img/green.png',
         ]);
         $this->assertEquals($expected, $actual->toArray());
+
+        $actual->setTag('ACCOUNT_UPDATE');
+        $expected = array_merge($expected,['messaging_type'=>'MESSAGE_TAG','tag'=>'ACCOUNT_UPDATE']);
+        $this->assertEquals($expected, $actual->toArray());
+
+        $actual->setPersona('111');
+        $expected = array_merge($expected,['persona_id'=>'111']);
+        $this->assertEquals($expected, $actual->toArray());
+
     }
 
 
