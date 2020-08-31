@@ -114,14 +114,38 @@ class Messaging extends Model implements RequestInterface
         return $this;
     }
 
+    /**
+     * setTag
+     * @param $tag
+     * @return $this
+     */
     public function setTag($tag){
         if(in_array($tag,['CONFIRMED_EVENT_UPDATE','POST_PURCHASE_UPDATE','ACCOUNT_UPDATE','HUMAN_AGENT'])){
             $this->messaging_type = self::MESSAGING_TYPE_MESSAGE_TAG;
             $this->tag = $tag;
         }
+        return $this;
     }
 
+    /**
+     * setPersona
+     * @param $persona_id
+     * @return $this
+     */
     public function setPersona($persona_id){
         $this->persona_id = $persona_id;
+        return $this;
     }
+
+    /**
+     * setPostId
+     * @param $post_id
+     * @return $this
+     */
+    public function setPostId($post_id){
+        $this->recipient->setPostId($post_id);
+        return $this;
+    }
+
+
 }

@@ -4,6 +4,8 @@ namespace AdolphYu\FBMessenger\Tests\Models\Messaging;
 
 
 use AdolphYu\FBMessenger\Models\Message\QuickReply;
+use AdolphYu\FBMessenger\Models\Messaging\GetStartMessaging;
+use AdolphYu\FBMessenger\Models\Messaging\GreetingMessaging;
 use AdolphYu\FBMessenger\Models\Messaging\MessageAttachmentsMessaging;
 use AdolphYu\FBMessenger\Models\Messaging\Messaging;
 use AdolphYu\FBMessenger\Models\Messaging\TextMessaging;
@@ -11,10 +13,10 @@ use AdolphYu\FBMessenger\Tests\TestCase;
 
 /**
  *
- * Class MessageAttachmentsMessagingTest
+ * Class GreetingMessagingTest
  * @package AdolphYu\FBMessenger\Tests\Models\Message
  */
-class MessageAttachmentsMessagingTest extends TestCase
+class GreetingMessagingTest extends TestCase
 {
 
     /**
@@ -22,11 +24,18 @@ class MessageAttachmentsMessagingTest extends TestCase
      */
     public function testToArray()
     {
-
         $expected = self::initData();
-        $actual = new MessageAttachmentsMessaging('image','http://www.messenger-rocks.com/image.jpg');
+        $actual = new GreetingMessaging([
+            [
+                'locale'=>'default',
+                'text'=>'Hello!'
+                ],
+            [
+                'locale'=>'en_US',
+                'text'=>'Timeless apparel for the masses.'
+            ],
+        ]);
         $this->assertEquals($expected, $actual->toArray());
-
     }
 
 
@@ -37,15 +46,15 @@ class MessageAttachmentsMessagingTest extends TestCase
     public static function initData(){
 
         return json_decode('{
-  "message":{
-    "attachment":{
-      "type":"image", 
-      "payload":{
-        "is_reusable": true,
-        "url":"http://www.messenger-rocks.com/image.jpg"
-      }
+  "greeting": [
+    {
+      "locale":"default",
+      "text":"Hello!" 
+    }, {
+      "locale":"en_US",
+      "text":"Timeless apparel for the masses."
     }
-  }
+  ]
 }',true);
     }
 }

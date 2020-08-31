@@ -4,6 +4,7 @@ namespace AdolphYu\FBMessenger\Tests\Models\Messaging;
 
 
 use AdolphYu\FBMessenger\Models\Message\QuickReply;
+use AdolphYu\FBMessenger\Models\Messaging\GetStartMessaging;
 use AdolphYu\FBMessenger\Models\Messaging\MessageAttachmentsMessaging;
 use AdolphYu\FBMessenger\Models\Messaging\Messaging;
 use AdolphYu\FBMessenger\Models\Messaging\TextMessaging;
@@ -11,10 +12,10 @@ use AdolphYu\FBMessenger\Tests\TestCase;
 
 /**
  *
- * Class MessageAttachmentsMessagingTest
+ * Class GetStartMessagingTest
  * @package AdolphYu\FBMessenger\Tests\Models\Message
  */
-class MessageAttachmentsMessagingTest extends TestCase
+class GetStartMessagingTest extends TestCase
 {
 
     /**
@@ -24,7 +25,7 @@ class MessageAttachmentsMessagingTest extends TestCase
     {
 
         $expected = self::initData();
-        $actual = new MessageAttachmentsMessaging('image','http://www.messenger-rocks.com/image.jpg');
+        $actual = new GetStartMessaging('<postback_payload>');
         $this->assertEquals($expected, $actual->toArray());
 
     }
@@ -37,15 +38,7 @@ class MessageAttachmentsMessagingTest extends TestCase
     public static function initData(){
 
         return json_decode('{
-  "message":{
-    "attachment":{
-      "type":"image", 
-      "payload":{
-        "is_reusable": true,
-        "url":"http://www.messenger-rocks.com/image.jpg"
-      }
-    }
-  }
+  "get_started": {"payload": "<postback_payload>"}
 }',true);
     }
 }

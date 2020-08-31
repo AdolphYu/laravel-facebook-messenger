@@ -18,7 +18,7 @@ class Button implements Arrayable
     public $payload;
     public $webview_height_ratio;
     public $game_metadata;
-
+    public $content_type;
     /**
      * Father is great
      * Button constructor.
@@ -48,6 +48,10 @@ class Button implements Arrayable
         if(isset($button['game_metadata'])){
             $this->game_metadata = new GameMetadata($button['game_metadata']);
         }
+
+        if(isset($button['content_type'])){
+            $this->content_type = $button['content_type'];
+        }
     }
 
     public function toArray()
@@ -59,6 +63,7 @@ class Button implements Arrayable
             'payload'=>$this->payload,
             'webview_height_ratio'=>$this->webview_height_ratio,
             'game_metadata'=>$this->game_metadata?$this->game_metadata->toArray():null,
+            'content_type'=>$this->content_type,
         ]);
     }
 
