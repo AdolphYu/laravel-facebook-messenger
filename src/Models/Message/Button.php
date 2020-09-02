@@ -3,14 +3,14 @@
 namespace AdolphYu\FBMessenger\Models\Message;
 
 use AdolphYu\FBMessenger\Models\Message\Button\GameMetadata;
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
 
 /**
  *
  * Class Button
  * @package AdolphYu\FBMessenger\Models\Message
  */
-class Button implements Arrayable
+class Button extends Model
 {
     public $type;
     public $url;

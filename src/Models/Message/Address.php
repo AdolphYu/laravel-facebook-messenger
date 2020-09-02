@@ -2,13 +2,13 @@
 
 namespace AdolphYu\FBMessenger\Models\Message;
 
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
 
 /**
  * Class Address
  * @package AdolphYu\FBMessenger\Models\Message
  */
-class Address implements Arrayable
+class Address extends Model
 {
     public $street_1;
     public $street_2;

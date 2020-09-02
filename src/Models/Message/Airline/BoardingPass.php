@@ -3,13 +3,13 @@
 namespace AdolphYu\FBMessenger\Models\Message\Airline;
 
 use AdolphYu\FBMessenger\Models\Message\Field;
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
 
 /**
  * Class BoardingPass
  * @package AdolphYu\FBMessenger\Models\Message
  */
-class BoardingPass implements Arrayable
+class BoardingPass extends Model
 {
     public $passenger_name;
     public $pnr_number;

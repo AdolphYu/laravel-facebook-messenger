@@ -2,13 +2,12 @@
 
 namespace AdolphYu\FBMessenger\Models\Message\Button;
 
-use AdolphYu\FBMessenger\Models\Message\Button;
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
 
 /**
  * Class GameMetadata
  */
-class GameMetadata implements Arrayable
+class GameMetadata extends Model
 {
     public $player_id;
     public $context_id;

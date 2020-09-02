@@ -2,13 +2,13 @@
 
 namespace AdolphYu\FBMessenger\Models\Message\Airline;
 
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
 
 /**
  * Class FlightSchedule
  * @package AdolphYu\FBMessenger\Models\Message
  */
-class FlightSchedule implements Arrayable
+class FlightSchedule extends Model
 {
     public $departure_time;
     public $arrival_time;

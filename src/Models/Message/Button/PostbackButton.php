@@ -3,7 +3,6 @@
 namespace AdolphYu\FBMessenger\Models\Message\Button;
 
 use AdolphYu\FBMessenger\Models\Message\Button;
-use Illuminate\Contracts\Support\Arrayable;
 
 /**
  * Class PostbackButton

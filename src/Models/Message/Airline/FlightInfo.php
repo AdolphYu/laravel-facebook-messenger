@@ -2,13 +2,13 @@
 
 namespace AdolphYu\FBMessenger\Models\Message\Airline;
 
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
 
 /**
  * Class FlightInfo
  * @package AdolphYu\FBMessenger\Models\Message
  */
-class FlightInfo implements Arrayable
+class FlightInfo extends Model
 {
     public $flight_number;
     public $departure_airport;

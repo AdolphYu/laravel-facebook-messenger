@@ -2,15 +2,14 @@
 
 namespace AdolphYu\FBMessenger\Models\Message;
 
-use AdolphYu\FBMessenger\Models\Message\Button\GameMetadata;
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
 
 /**
  *
  * Class PersistentMenu
  * @package AdolphYu\FBMessenger\Models\Message
  */
-class PersistentMenu implements Arrayable
+class PersistentMenu extends Model
 {
     public $locale;
     public $composer_input_disabled;

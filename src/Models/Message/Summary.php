@@ -2,13 +2,13 @@
 
 namespace AdolphYu\FBMessenger\Models\Message;
 
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
 
 /**
  * Class Summary
  * @package AdolphYu\FBMessenger\Models\Message
  */
-class Summary implements Arrayable
+class Summary extends Model
 {
     public $subtotal;
     public $shipping_cost;

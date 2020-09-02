@@ -2,13 +2,13 @@
 
 namespace AdolphYu\FBMessenger\Models\Message\Airline;
 
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
 
 /**
  * Class Airport
  * @package AdolphYu\FBMessenger\Models\Message
  */
-class Airport implements Arrayable
+class Airport extends Model
 {
     public $airport_code;
     public $city;

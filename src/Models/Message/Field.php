@@ -2,13 +2,14 @@
 
 namespace AdolphYu\FBMessenger\Models\Message;
 
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
+
 
 /**
  * Class Field
  * @package AdolphYu\FBMessenger\Models\Message
  */
-class Field implements Arrayable
+class Field extends Model
 {
     public $label;
     public $value;

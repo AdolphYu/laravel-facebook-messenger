@@ -2,13 +2,13 @@
 
 namespace AdolphYu\FBMessenger\Models\Message;
 
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
 
 /**
  * Class Adjustment
  * @package AdolphYu\FBMessenger\Models\Message
  */
-class Adjustment implements Arrayable
+class Adjustment extends Model
 {
     public $name;
     public $amount;

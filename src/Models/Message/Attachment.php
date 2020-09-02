@@ -3,9 +3,9 @@
 namespace AdolphYu\FBMessenger\Models\Message;
 
 use AdolphYu\FBMessenger\Exceptions\UnknownTypeException;
-use Illuminate\Contracts\Support\Arrayable;
+use AdolphYu\FBMessenger\Models\Model;
 
-class Attachment implements Arrayable
+class Attachment extends Model
 {
     public $type;
     public $payload;
