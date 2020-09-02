@@ -4,7 +4,7 @@ namespace AdolphYu\FBMessenger\Tests\Models\Messaging;
 
 
 use AdolphYu\FBMessenger\Models\Message\QuickReply;
-use AdolphYu\FBMessenger\Models\Messaging\Messaging;
+use AdolphYu\FBMessenger\Models\Messaging\MessageMessaging;
 use AdolphYu\FBMessenger\Models\Messaging\TextMessaging;
 use AdolphYu\FBMessenger\Tests\TestCase;
 
@@ -24,7 +24,7 @@ class TextMessagingTest extends TestCase
 
         $expected = self::initData();
         $actual = new TextMessaging('<PSID>','Pick a color:');
-        $actual->messaging_type=Messaging::MESSAGING_TYPE_RESPONSE;
+        $actual->messaging_type=MessageMessaging::MESSAGING_TYPE_RESPONSE;
         $actual->addQuickReply(new QuickReply([
             'content_type'=>'text',
             'title'=>'Red',
@@ -39,7 +39,7 @@ class TextMessagingTest extends TestCase
         $this->assertEquals($expected, $actual->toArray());
 
         $actual = new TextMessaging('<PSID>','Pick a color:');
-        $actual->messaging_type=Messaging::MESSAGING_TYPE_RESPONSE;
+        $actual->messaging_type=MessageMessaging::MESSAGING_TYPE_RESPONSE;
         $actual->addQuickReply([
             'content_type'=>'text',
             'title'=>'Red',

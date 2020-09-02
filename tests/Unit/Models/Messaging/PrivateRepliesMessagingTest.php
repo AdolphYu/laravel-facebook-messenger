@@ -3,11 +3,7 @@
 namespace AdolphYu\FBMessenger\Tests\Models\Messaging;
 
 
-use AdolphYu\FBMessenger\Models\Message\QuickReply;
-use AdolphYu\FBMessenger\Models\Messaging\GetStartMessaging;
-use AdolphYu\FBMessenger\Models\Messaging\MessageAttachmentsMessaging;
-use AdolphYu\FBMessenger\Models\Messaging\Messaging;
-use AdolphYu\FBMessenger\Models\Messaging\TextMessaging;
+use AdolphYu\FBMessenger\Models\Messaging\MessageMessaging;
 use AdolphYu\FBMessenger\Tests\TestCase;
 
 /**
@@ -25,7 +21,7 @@ class PrivateRepliesMessagingTest extends TestCase
     {
 
         $expected = self::initData();
-        $actual = new Messaging($expected);
+        $actual = new MessageMessaging($expected);
         $this->assertEquals($expected, $actual->toArray());
 
     }

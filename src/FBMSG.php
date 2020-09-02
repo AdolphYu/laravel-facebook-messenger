@@ -11,8 +11,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class Bot
- * @package Casperlaitw\LaravelFbMessenger\Contracts
+ * Class FBMSG
  */
 class FBMSG
 {
@@ -146,7 +145,7 @@ class FBMSG
         }
     }
 
-    public function send(Messaging $message, $type = self::TYPE_POST)
+    public function send(Messaging $message)
     {
         return $this->call($message->getRoute(), $message->toArray(),$message->getMethod());
     }

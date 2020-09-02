@@ -7,7 +7,7 @@ use AdolphYu\FBMessenger\Models\Message\Message;
 use AdolphYu\FBMessenger\Models\Message\QuickReply;
 use AdolphYu\FBMessenger\Models\User\Recipient;
 
-class ButtonTemplateMessaging extends Messaging
+class ButtonTemplateMessaging extends MessageMessaging
 {
     public function __construct($recipient_id, $text, $buttons)
     {

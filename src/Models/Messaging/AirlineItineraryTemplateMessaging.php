@@ -9,7 +9,7 @@ use AdolphYu\FBMessenger\Models\Message\Button;
 use AdolphYu\FBMessenger\Models\Message\Message;
 use AdolphYu\FBMessenger\Models\User\Recipient;
 
-class AirlineItineraryTemplateMessaging extends Messaging
+class AirlineItineraryTemplateMessaging extends MessageMessaging
 {
     public function __construct($recipient_id, $payload)
     {

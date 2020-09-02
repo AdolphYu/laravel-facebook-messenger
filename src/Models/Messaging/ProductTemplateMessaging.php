@@ -5,7 +5,7 @@ namespace AdolphYu\FBMessenger\Models\Messaging;
 use AdolphYu\FBMessenger\Models\Message\Message;
 use AdolphYu\FBMessenger\Models\User\Recipient;
 
-class ProductTemplateMessaging extends Messaging
+class ProductTemplateMessaging extends MessageMessaging
 {
     public function __construct($recipient_id, $products)
     {

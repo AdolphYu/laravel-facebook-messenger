@@ -10,9 +10,10 @@ use AdolphYu\FBMessenger\Models\RequestInterface;
 use AdolphYu\FBMessenger\Models\User\Persona;
 use AdolphYu\FBMessenger\Models\User\Recipient;
 
-class PassThreadControlMessaging extends Messaging
+class PassThreadControlMessaging extends MessageMessaging
 {
-
+    public $route = 'me/pass_thread_control';
+    public $method = FBMSG::TYPE_POST;
     public $target_app_id;
     public $metadata;
     public function __construct($recipient_id, $target_app_id,$metadata='')
@@ -32,15 +33,6 @@ class PassThreadControlMessaging extends Messaging
         ]);
     }
 
-    public function getRoute()
-    {
-        return 'me/pass_thread_control';
 
-    }
-
-    public function getMethod()
-    {
-        return FBMSG::TYPE_POST;
-    }
 
 }

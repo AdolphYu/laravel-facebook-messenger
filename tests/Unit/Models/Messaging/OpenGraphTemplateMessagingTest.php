@@ -4,7 +4,6 @@ namespace AdolphYu\FBMessenger\Tests\Models\Messaging;
 
 
 use AdolphYu\FBMessenger\Models\Message\Element;
-use AdolphYu\FBMessenger\Models\Messaging\GenericTemplateMessaging;
 use AdolphYu\FBMessenger\Models\Messaging\OpenGraphTemplateMessaging;
 use AdolphYu\FBMessenger\Tests\TestCase;
 

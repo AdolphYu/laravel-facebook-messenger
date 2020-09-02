@@ -7,7 +7,7 @@ use AdolphYu\FBMessenger\Models\Message\Message;
 use AdolphYu\FBMessenger\Models\Message\QuickReply;
 use AdolphYu\FBMessenger\Models\User\Recipient;
 
-class OpenGraphTemplateMessaging extends Messaging
+class OpenGraphTemplateMessaging extends MessageMessaging
 {
     public function __construct($recipient_id, $elements)
     {

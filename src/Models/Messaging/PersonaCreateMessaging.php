@@ -10,8 +10,11 @@ use AdolphYu\FBMessenger\Models\RequestInterface;
 use AdolphYu\FBMessenger\Models\User\Persona;
 use AdolphYu\FBMessenger\Models\User\Recipient;
 
-class PersonaCreateMessaging extends Model implements RequestInterface
+class PersonaCreateMessaging extends Messaging implements RequestInterface
 {
+    public $method = FBMSG::TYPE_POST;
+    public $route = 'me/personas';
+
     public $persona;
 
     public function __construct($name, $url)
@@ -28,15 +31,5 @@ class PersonaCreateMessaging extends Model implements RequestInterface
         return $this->persona->toArray();
     }
 
-    public function getRoute()
-    {
-        return 'me/personas';
-
-    }
-
-    public function getMethod()
-    {
-        return FBMSG::TYPE_POST;
-    }
 
 }

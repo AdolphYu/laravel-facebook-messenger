@@ -7,8 +7,11 @@ use AdolphYu\FBMessenger\Models\Message\Message;
 use AdolphYu\FBMessenger\Models\Message\QuickReply;
 use AdolphYu\FBMessenger\Models\User\Recipient;
 
-class MessageAttachmentsMessaging extends Messaging
+class MessageAttachmentsMessaging extends MessageMessaging
 {
+    public $method = FBMSG::TYPE_POST;
+    public $route = 'me/message_attachments';
+
     /**
      * MessageAttachmentsMessaging constructor.
      * @param $type
@@ -26,16 +29,4 @@ class MessageAttachmentsMessaging extends Messaging
             ]
         ]]);
     }
-
-    public function getRoute()
-    {
-        return 'me/message_attachments';
-
-    }
-
-    public function getMethod()
-    {
-        return FBMSG::TYPE_POST;
-    }
-
 }

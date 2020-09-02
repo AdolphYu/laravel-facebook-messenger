@@ -3,9 +3,7 @@
 namespace AdolphYu\FBMessenger\Tests\Models\Messaging;
 
 
-use AdolphYu\FBMessenger\Models\Message\Button;
 use AdolphYu\FBMessenger\Models\Message\Element;
-use AdolphYu\FBMessenger\Models\Messaging\ButtonTemplateMessaging;
 use AdolphYu\FBMessenger\Models\Messaging\ProductTemplateMessaging;
 use AdolphYu\FBMessenger\Tests\TestCase;
 
