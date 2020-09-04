@@ -11,9 +11,16 @@ class IceBreakersGetMessaging extends MessengerProfileMessaging
 {
     public $method = FBMSG::TYPE_GET;
 
+    public function __construct()
+    {
+
+    }
+
     public function toArray()
     {
-        return [];
+        return [
+            'fields'=>'ice_breakers'
+        ];
     }
 
 }

@@ -2,6 +2,7 @@
 
 namespace AdolphYu\FBMessenger\Models;
 
+use AdolphYu\FBMessenger\Models\Messaging\MessageMessaging;
 use AdolphYu\FBMessenger\Models\Messaging\Messaging;
 use Illuminate\Support\Collection;
 
@@ -18,7 +19,7 @@ class Page extends Model
         $this->messaging = collect();
         if(isset($page['messaging'])){
             foreach($page['messaging'] as $messaging){
-                $this->messaging->push(new Messaging($messaging));
+                $this->messaging->push(new MessageMessaging($messaging));
             }
         }
     }

@@ -14,8 +14,12 @@ class Receiver
 {
     public $object;
     public $entry;
+
+    public $processes;
+
     public function __construct($receiver)
     {
+        $this->processes = collect();
         $this->object = $receiver['object'];
         $this->entry = collect();
         if(isset($receiver['enter'])){
@@ -60,4 +64,16 @@ class Receiver
             }
         }
     }
+
+    public function analytics(){
+       foreach($this->processes as $process){
+           $process->handle($this->object);
+       }
+    }
+
+    public function addProcess($process){
+        $this->processes->push($process);
+    }
+
+
 }

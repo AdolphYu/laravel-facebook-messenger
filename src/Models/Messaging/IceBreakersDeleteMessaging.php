@@ -11,6 +11,11 @@ class IceBreakersDeleteMessaging extends MessengerProfileMessaging
 {
     public $method = FBMSG::TYPE_DELETE;
 
+    public function __construct()
+    {
+
+    }
+
     public function toArray()
     {
         return [

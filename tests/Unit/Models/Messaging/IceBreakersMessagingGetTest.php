@@ -30,6 +30,8 @@ class IceBreakersMessagingGetTest extends TestCase
      * @return array
      */
     public static function initData(){
-        return json_decode('{}',true);
+        return [
+            'fields'=>'ice_breakers'
+        ];
     }
 }
