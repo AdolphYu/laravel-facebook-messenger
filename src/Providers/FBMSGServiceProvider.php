@@ -11,6 +11,8 @@ use Illuminate\Support\ServiceProvider;
  */
     class FBMSGServiceProvider extends ServiceProvider
 {
+
+        protected $configPath = __DIR__ . '/../config/fb-messenger.php';
     /**
      *
      */
@@ -21,14 +23,15 @@ use Illuminate\Support\ServiceProvider;
 
     public function register()
     {
-        $this->app->singleton(FBMSG::class, function ($app) {
+
+        $this->app->singleton('fbmsg', function ($app) {
             return new FBMSG($app);
         });
     }
 
     public function provides()
     {
-        return [FBMSG::class];
+        return ['fbmsg'];
     }
 
 

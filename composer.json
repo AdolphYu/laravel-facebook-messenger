@@ -29,11 +29,17 @@
     "extra": {
         "laravel": {
             "providers": [
-                "AdolphYu\\FBMessenger\\Providers\\FBMSGServiceProvider"
-            ]
+                "AdolphYu\\FBMessenger\\Providers\\FBMSGServiceProvider",
+                "AdolphYu\\FBMessenger\\PackageServiceProvider"
+            ],
+            "aliases": {
+                "FBMSG": "AdolphYu\\FBMessenger\\Facades\\FBMSG"
+            }
         }
     },
-    "require": {},
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    },
     "require-dev": {
         "orchestra/testbench": "^5.0",
         "phpunit/phpunit": "^9.3"
