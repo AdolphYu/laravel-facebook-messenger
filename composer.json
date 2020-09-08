@@ -29,7 +29,6 @@
     "extra": {
         "laravel": {
             "providers": [
-                "AdolphYu\\FBMessenger\\Providers\\FBMSGServiceProvider",
                 "AdolphYu\\FBMessenger\\PackageServiceProvider"
             ],
             "aliases": {

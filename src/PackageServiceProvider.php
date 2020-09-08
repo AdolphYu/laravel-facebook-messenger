@@ -4,6 +4,7 @@ namespace AdolphYu\FBMessenger;
 
 
 use AdolphYu\FBMessenger\FBMSG;
+use AdolphYu\FBMessenger\Providers\FBMSGServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -27,6 +28,7 @@ class PackageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/fb-messenger.php', 'fb-messenger');
+        $this->app->register(FBMSGServiceProvider::class);
     }
 
 }

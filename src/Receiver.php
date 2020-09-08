@@ -33,6 +33,7 @@ class Receiver
 
     public function addProcess(ProcessInterface $process){
         $this->processes->push($process);
+        return $this;
     }
 
 

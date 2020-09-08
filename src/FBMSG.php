@@ -227,10 +227,6 @@ class FBMSG
         return $this->call($message->getRoute(), $message->toArray(),$message->getMethod());
     }
 
-
-    public function a($a):array{
-        return [1];
-    }
     /**
      * Receive the webhook message
      * @param $request
@@ -240,6 +236,15 @@ class FBMSG
         $this->receive->handle($request);
     }
 
+    /**
+     * addProcess
+     * @param $process
+     * @return $this
+     */
+    public function addProcess($process){
+        $this->receive->addProcess($process);
+        return $this;
+    }
 
 
 
