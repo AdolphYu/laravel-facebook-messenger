@@ -78,6 +78,10 @@ Finally, you can run `php artisan route:list` to check.
  ];
 ```
 
+
+
+## Receive Message
+
 ### Processes
 The `Process` will process the information sent by facebook messenger
 
@@ -105,8 +109,11 @@ class CustomProcess extends Process
 
 ```
 
+If you want to know `$data` , you can refer to [Webhook](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events)
 
-### Add code in the `boot` method of the `AppServiceProvider` or other `ServiceProvider`
+
+
+Add code in the `boot` method of the `AppServiceProvider` or other `ServiceProvider`
 
 ```php
 <?php
@@ -136,12 +143,28 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $this->app->get('fbmsg')->addProcess(new CustomProcess());//like this
+        if($this->app->get('fbmsg')){
+            $this->app->get('fbmsg')->addProcess(new CustomProcess());//like this
+        }   
     }
 }
 
 ```
+### Processes using the system
 
+You can check out [Processes](https://github.com/AdolphYu/laravel-facebook-messenger/tree/master/src/Processes)
+
+## Send Message
+After completing the configuration, sending a message will become very simple
+
+Examples are as follows
+```php
+use AdolphYu\FBMessenger\Models\TextMessaging;
+Route::get('/', function () {
+    FBMSG::send(new TextMessaging('<psid>','HELLO'));
+});
+
+```
 
 ## API
 Not completed yet
