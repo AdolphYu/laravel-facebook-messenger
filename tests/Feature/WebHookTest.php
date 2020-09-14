@@ -39,6 +39,7 @@ class WebHookTest extends TestCase
      */
     public function testReceive()
     {
+
         $this->post(route('fb-messenger.receive'))->assertOk();
     }
 
