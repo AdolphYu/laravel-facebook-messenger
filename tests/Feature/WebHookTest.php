@@ -19,7 +19,7 @@ class WebHookTest extends TestCase
      */
     public function testVerificationNotFound()
     {
-        $this->get(route('fb-messenger.verification'))->assertNotFound();
+        $this->get(route('fb-messenger.verification'))->assertStatus(422);
     }
 
     /**

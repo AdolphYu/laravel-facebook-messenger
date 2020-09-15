@@ -29,7 +29,7 @@ class WebhookController extends Controller
             && $request->get('hub_verify_token') === config('fb-messenger.verify_token')) {
             return new Response($request->get('hub_challenge'));
         }
-        abort(404, 'Not found resources');
+        abort(422, 'Not found resources');
     }
 
     /**
