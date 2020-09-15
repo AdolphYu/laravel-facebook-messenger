@@ -166,8 +166,10 @@ Route::get('/', function () {
 
 ```
 
-## API
-Not completed yet
+## Debug
+If you set `debug=true` in the `fb-messenger.php` file, you will see debug information in the log file
+
+
 
 ## Commands
 Not completed yet
