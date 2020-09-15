@@ -150,15 +150,6 @@ class FBMSG
 
 
     /**
-     * @param $debug
-     */
-    public function setDebug($debug)
-    {
-        $this->debug = $debug;
-    }
-
-
-    /**
      * @param $secret
      * @return $this
      */
@@ -211,6 +202,15 @@ class FBMSG
                 $options
             );
 
+            if($this->app->get('config')->get('fb-messenger.debug')){
+                Log::info('FBMSG Send',[
+                    'HttpMethod'=>$type,
+                    'HttpUrl'=>$url,
+                    'HttpOptions'=>$options,
+                    'HttpResponse'=>json_decode($response->getBody(), true),
+                ]);
+            }
+
             return json_decode($response->getBody(), true);
         } catch (ClientException $ex) {
             return json_decode($ex->getResponse()->getBody(), true);
@@ -233,6 +233,12 @@ class FBMSG
      * @throws Exceptions\UnknownTypeException
      */
     public function receive($request):void{
+        if($this->app->get('config')->get('fb-messenger.debug')){
+            Log::info('FBMSG Receive',[
+                'body'=>$request->all(),
+            ]);
+        }
+
         $this->receive->handle($request);
     }
 
