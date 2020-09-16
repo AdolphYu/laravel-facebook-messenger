@@ -171,8 +171,8 @@ If you set `debug=true` in the `fb-messenger.php` file, you will see debug infor
 
 
 
-## Commands
-Not completed yet
+## Thanks
+https://github.com/CasperLaiTW/laravel-fb-messenger
 
 ## License
 

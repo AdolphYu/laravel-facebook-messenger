@@ -4,6 +4,7 @@
 namespace AdolphYu\FBMessenger;
 
 use AdolphYu\FBMessenger\Events\MessagingReferralEvent;
+use AdolphYu\FBMessenger\Exceptions\ServiceException;
 use AdolphYu\FBMessenger\Models\Messaging\Messaging;
 use AdolphYu\FBMessenger\Models\Messaging\TextMessaging;
 use AdolphYu\FBMessenger\Processes\MessageDeliveryProcess;
@@ -170,7 +171,7 @@ class FBMSG
      */
     protected function call($url, $data, $type = self::TYPE_POST)
     {
-        try {
+
             $options = [
                 'query' => [
                     'access_token' => $this->token,
@@ -196,11 +197,15 @@ class FBMSG
                     break;
             }
 
-            $response = $this->client->request(
-                $type,
-                $url,
-                $options
-            );
+            try {
+                $response = $this->client->request(
+                    $type,
+                    $url,
+                    $options
+                );
+            } catch (ClientException $ex) {
+                throw new ServiceException($ex->getResponse()->getBody(),$ex->getCode());
+            }
 
             if($this->app->get('config')->get('fb-messenger.debug')){
                 Log::info('FBMSG Send',[
@@ -212,9 +217,7 @@ class FBMSG
             }
 
             return json_decode($response->getBody(), true);
-        } catch (ClientException $ex) {
-            return json_decode($ex->getResponse()->getBody(), true);
-        }
+
     }
 
     /**
