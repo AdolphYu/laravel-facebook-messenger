@@ -12,7 +12,7 @@ Easy to making your facebook messenger.
 ### Composer
 
 ```shell
-Not completed yet
+composer require adolphyu/laravel-facebook-messenger
 ```
 
 ## Laravel
