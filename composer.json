@@ -7,7 +7,6 @@
         "chatbot",
         "laravel"
     ],
-    "minimum-stability": "stable",
     "license": "MIT",
     "authors": [
         {
