@@ -1,6 +1,3 @@
-Not yet completed
-
-
 # Laravel Facebook Messenger
 [![Build Status](https://api.travis-ci.org/AdolphYu/laravel-facebook-messenger.svg)](https://travis-ci.org/AdolphYu/laravel-facebook-messenger)
 [![Latest Stable Version](https://poser.pugx.org/adolphyu/laravel-facebook-messenger/v)](//packagist.org/packages/adolphyu/laravel-facebook-messenger)
