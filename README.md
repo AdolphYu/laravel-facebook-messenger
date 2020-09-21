@@ -1,4 +1,5 @@
 # Laravel Facebook Messenger
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/981a9e8571ce43da9c4f8307d4d35260)](https://app.codacy.com/manual/AdolphYu/laravel-facebook-messenger?utm_source=github.com&utm_medium=referral&utm_content=AdolphYu/laravel-facebook-messenger&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://api.travis-ci.org/AdolphYu/laravel-facebook-messenger.svg)](https://travis-ci.org/AdolphYu/laravel-facebook-messenger)
 [![Latest Stable Version](https://poser.pugx.org/adolphyu/laravel-facebook-messenger/v)](//packagist.org/packages/adolphyu/laravel-facebook-messenger)
 [![Total Downloads](https://poser.pugx.org/adolphyu/laravel-facebook-messenger/downloads)](//packagist.org/packages/adolphyu/laravel-facebook-messenger)
